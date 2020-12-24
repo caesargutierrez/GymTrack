@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// View for a Day, shows Day name, workout type, and number of workouts for that day
 struct DaysView: View {
     
     var day: Days
@@ -52,10 +53,6 @@ struct Days: Identifiable {
     
 }
 
-//struct DayViewList (){
-//
-//}
-
 /* For development use. */
 func create_list (list: Array<Days>) -> Array<Days>{
     var list = list
@@ -63,4 +60,8 @@ func create_list (list: Array<Days>) -> Array<Days>{
     list.append(Days(day: "Tuesday"))
     list.append(Days(day: "Wednesday"))
     return list
+}
+
+func addDay () {
+    
 }

@@ -11,11 +11,10 @@ import SwiftUI
 let coloredNavAppearance = UINavigationBarAppearance()
 
 struct ContentView: View {
-        
-    var daysList = [Days]()
-    init() {
-//        Replace this to eventually use DataCore
-        daysList = create_list(list: daysList)
+    var cpy = [Days]()
+    @State var daysList = [Days]()
+    @State private var addDay = ""
+    init(_ data: Array<Days>) {
         
         coloredNavAppearance.configureWithOpaqueBackground()
         coloredNavAppearance.backgroundColor = .systemBlue
@@ -25,46 +24,45 @@ struct ContentView: View {
         UINavigationBar.appearance().standardAppearance = coloredNavAppearance
         UINavigationBar.appearance().scrollEdgeAppearance = coloredNavAppearance
         UINavigationBar.appearance().backgroundColor = .darkGray
-        
+        print("VIEW INIT DATA")
+        print(data)
+        self.cpy = data
+        print(cpy)
     }
 
     var body: some View {
-        
-        print("Printing elementes: ")
-        for elem in daysList{
-            print(elem.day)
-            print(elem.id)
-        }
-//        Main view here
-        return NavigationView {
-            List(daysList) {
-                newDay in
-                DaysView(day: newDay)
+        VStack{
+            NavigationView {
+                List(daysList) {
+                    newDay in
+                    DaysView(day: newDay)
+                }
+                .navigationBarTitle("Choose Workout Day", displayMode: .large)
+                .font(.largeTitle)
+                .padding()
             }
-            .navigationBarTitle("Choose Workout Day", displayMode: .inline)
-            .font(.largeTitle)
-            .padding()
+//           Add more days.
+//          TODO: Organize days
+            TextField("New Day Here", text: $addDay)
+            Button(action: {
+                    daysList.append((Days(day: (addDay))))
+                    print(daysList)
+                
+            }, label: {
+                Text("Add Day")
+                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+            })
         }
+//       View updates after loading due to @State variable
+        .onAppear(perform: {
+            self.daysList = self.cpy
+        })
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        let arr = [Days]()
+        return ContentView(create_list(list:arr))
     }
 }
-
-/* Configures background color for nagivation window. */
-//struct NavigationConfigurator: UIViewControllerRepresentable {
-//    var configure: (UINavigationController) -> Void = { _ in }
-//
-//    func makeUIViewController(context: UIViewControllerRepresentableContext<NavigationConfigurator>) -> UIViewController {
-//        return UIViewController()
-//    }
-//    func updateUIViewController(_ uiViewController: UIViewController, context: UIViewControllerRepresentableContext<NavigationConfigurator>) {
-//        if let nc = uiViewController.navigationController {
-//            self.configure(nc)
-//        }
-//    }
-
-//}
