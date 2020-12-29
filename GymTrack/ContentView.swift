@@ -14,6 +14,7 @@ struct ContentView: View {
     var cpy = [Days]()
     @State var daysList = [Days]()
     @State private var addDay = ""
+//    Setup for the navigation bar
     init(_ data: Array<Days>) {
         
         coloredNavAppearance.configureWithOpaqueBackground()
@@ -24,10 +25,6 @@ struct ContentView: View {
         UINavigationBar.appearance().standardAppearance = coloredNavAppearance
         UINavigationBar.appearance().scrollEdgeAppearance = coloredNavAppearance
         UINavigationBar.appearance().backgroundColor = .darkGray
-        print("VIEW INIT DATA")
-        print(data)
-        self.cpy = data
-        print(cpy)
     }
 
     var body: some View {
@@ -35,7 +32,9 @@ struct ContentView: View {
             NavigationView {
                 List(daysList) {
                     newDay in
-                    DaysView(day: newDay)
+                    DaysView(day: newDay).onTapGesture {
+                        print("TAPPED")
+                    }
                 }
                 .navigationBarTitle("Choose Workout Day", displayMode: .large)
                 .font(.largeTitle)
@@ -43,18 +42,23 @@ struct ContentView: View {
             }
 //           Add more days.
 //          TODO: Organize days
-            TextField("New Day Here", text: $addDay)
+            TextField("Type New Day Here", text: $addDay)
+                .multilineTextAlignment(.center)
             Button(action: {
                     daysList.append((Days(day: (addDay))))
                     print(daysList)
                 
-            }, label: {
+            },
+            
+            label: {
                 Text("Add Day")
-                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    .bold()
             })
+            .padding()
         }
-//       View updates after loading due to @State variable
+//       View updates after loading due to @State variable, should online occur once
         .onAppear(perform: {
+            print("ON APPEAR IS CALLED")
             self.daysList = self.cpy
         })
     }

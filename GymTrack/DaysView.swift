@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-// View for a Day, shows Day name, workout type, and number of workouts for that day
+//VIEW: View for a Day, shows Day name, workout type, and number of workouts for that day
 struct DaysView: View {
     
     var day: Days
@@ -34,7 +34,8 @@ struct DaysView_Previews: PreviewProvider {
     }
 }
 
-var daysleft = 5
+// MODEL
+var daysleft = 0
 /* Data structure to represent the day of the week */
 struct Days: Identifiable {
     
@@ -48,7 +49,7 @@ struct Days: Identifiable {
         self.workout = "Lower"
         self.id = daysleft
 //      Everytime a new day gets added we reduce our count
-        daysleft -= 1
+        daysleft += 1
     }
     
 }
