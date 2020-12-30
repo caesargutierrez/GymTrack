@@ -11,7 +11,8 @@
 		CD9300AB25906F18001FE0AE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9300AA25906F18001FE0AE /* ContentView.swift */; };
 		CD9300AD25906F1B001FE0AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD9300AC25906F1B001FE0AE /* Assets.xcassets */; };
 		CD9300B025906F1B001FE0AE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD9300AF25906F1B001FE0AE /* Preview Assets.xcassets */; };
-		CD9300C725907F5F001FE0AE /* DaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9300C625907F5F001FE0AE /* DaysView.swift */; };
+		CD9300C725907F5F001FE0AE /* DaysCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9300C625907F5F001FE0AE /* DaysCard.swift */; };
+		CDF741FA259C4C270081E6B2 /* DaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF741F9259C4C270081E6B2 /* DaysView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,7 +22,8 @@
 		CD9300AC25906F1B001FE0AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD9300AF25906F1B001FE0AE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CD9300B125906F1B001FE0AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CD9300C625907F5F001FE0AE /* DaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysView.swift; sourceTree = "<group>"; };
+		CD9300C625907F5F001FE0AE /* DaysCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysCard.swift; sourceTree = "<group>"; };
+		CDF741F9259C4C270081E6B2 /* DaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +58,8 @@
 			children = (
 				CD9300A825906F18001FE0AE /* GymTrackApp.swift */,
 				CD9300AA25906F18001FE0AE /* ContentView.swift */,
-				CD9300C625907F5F001FE0AE /* DaysView.swift */,
+				CD9300C625907F5F001FE0AE /* DaysCard.swift */,
+				CDF741F9259C4C270081E6B2 /* DaysView.swift */,
 				CD9300AC25906F1B001FE0AE /* Assets.xcassets */,
 				CD9300B125906F1B001FE0AE /* Info.plist */,
 				CD9300AE25906F1B001FE0AE /* Preview Content */,
@@ -142,8 +145,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD9300AB25906F18001FE0AE /* ContentView.swift in Sources */,
+				CDF741FA259C4C270081E6B2 /* DaysView.swift in Sources */,
 				CD9300A925906F18001FE0AE /* GymTrackApp.swift in Sources */,
-				CD9300C725907F5F001FE0AE /* DaysView.swift in Sources */,
+				CD9300C725907F5F001FE0AE /* DaysCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

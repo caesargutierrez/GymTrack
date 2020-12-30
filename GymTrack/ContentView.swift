@@ -14,6 +14,7 @@ struct ContentView: View {
     var cpy = [Days]()
     @State var daysList = [Days]()
     @State private var addDay = ""
+    @State private var addType = ""
 //    Setup for the navigation bar
     init(_ data: Array<Days>) {
         
@@ -25,29 +26,38 @@ struct ContentView: View {
         UINavigationBar.appearance().standardAppearance = coloredNavAppearance
         UINavigationBar.appearance().scrollEdgeAppearance = coloredNavAppearance
         UINavigationBar.appearance().backgroundColor = .darkGray
+        self.cpy = data
     }
 
     var body: some View {
         VStack{
+//          Open DaysCards
             NavigationView {
                 List(daysList) {
                     newDay in
-                    DaysView(day: newDay).onTapGesture {
-                        print("TAPPED")
+                    NavigationLink (destination: DaysView(day: newDay))
+                    {
+                        DaysCard(day: newDay)
                     }
                 }
                 .navigationBarTitle("Choose Workout Day", displayMode: .large)
-                .font(.largeTitle)
                 .padding()
-            }
-//           Add more days.
+            }.accentColor(.black)
+            
 //          TODO: Organize days
-            TextField("Type New Day Here", text: $addDay)
+            TextField("Enter new day. (ex: Monday)", text: $addDay)
                 .multilineTextAlignment(.center)
+            TextField("Enter type of workout day(ex: Legs).", text: $addType)
+                .multilineTextAlignment(.center)
+
             Button(action: {
-                    daysList.append((Days(day: (addDay))))
-                    print(daysList)
-                
+//                TODO: Add warning message when inputs are empty
+                if (addType != "" && addDay != "") {
+                    daysList.append((Days(day: addDay, workout: addType)))
+//                    Reset vars
+                    addType = ""
+                    addDay = ""
+                }
             },
             
             label: {
@@ -58,7 +68,6 @@ struct ContentView: View {
         }
 //       View updates after loading due to @State variable, should online occur once
         .onAppear(perform: {
-            print("ON APPEAR IS CALLED")
             self.daysList = self.cpy
         })
     }
