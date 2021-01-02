@@ -11,12 +11,12 @@ import SwiftUI
 let coloredNavAppearance = UINavigationBarAppearance()
 
 struct ContentView: View {
-    var cpy = [Days]()
-    @State var daysList = [Days]()
+    @EnvironmentObject var daysList: MainModel
     @State private var addDay = ""
     @State private var addType = ""
+    
 //    Setup for the navigation bar
-    init(_ data: Array<Days>) {
+    init() {
         
         coloredNavAppearance.configureWithOpaqueBackground()
         coloredNavAppearance.backgroundColor = .systemBlue
@@ -26,14 +26,14 @@ struct ContentView: View {
         UINavigationBar.appearance().standardAppearance = coloredNavAppearance
         UINavigationBar.appearance().scrollEdgeAppearance = coloredNavAppearance
         UINavigationBar.appearance().backgroundColor = .darkGray
-        self.cpy = data
+        
     }
 
     var body: some View {
         VStack{
 //          Open DaysCards
             NavigationView {
-                List(daysList) {
+                List(daysList.get()) {
                     newDay in
                     NavigationLink (destination: DaysView(day: newDay))
                     {
@@ -45,6 +45,7 @@ struct ContentView: View {
             }.accentColor(.black)
             
 //          TODO: Organize days
+//           Add Day
             TextField("Enter new day. (ex: Monday)", text: $addDay)
                 .multilineTextAlignment(.center)
             TextField("Enter type of workout day(ex: Legs).", text: $addType)
@@ -53,29 +54,25 @@ struct ContentView: View {
             Button(action: {
 //                TODO: Add warning message when inputs are empty
                 if (addType != "" && addDay != "") {
-                    daysList.append((Days(day: addDay, workout: addType)))
+                    daysList.addDay(newDayName: addDay, newDayType: addType)
 //                    Reset vars
                     addType = ""
                     addDay = ""
                 }
             },
-            
+
             label: {
                 Text("Add Day")
                     .bold()
             })
-            .padding()
         }
-//       View updates after loading due to @State variable, should online occur once
-        .onAppear(perform: {
-            self.daysList = self.cpy
-        })
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        let arr = [Days]()
-        return ContentView(create_list(list:arr))
+        var daysList = MainModel()
+        daysList.create_list()
+        return ContentView().environmentObject(daysList)
     }
 }

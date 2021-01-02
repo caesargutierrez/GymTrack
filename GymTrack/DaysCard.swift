@@ -17,6 +17,8 @@ struct DaysCard: View {
             // Card background
             RoundedRectangle(cornerRadius: 20, style: /*@START_MENU_TOKEN@*/.continuous/*@END_MENU_TOKEN@*/)
                 .fill(Color.blue)
+            RoundedRectangle(cornerRadius: 20, style: /*@START_MENU_TOKEN@*/.continuous/*@END_MENU_TOKEN@*/)
+                .stroke(lineWidth: 3)
             //Contents workout
             VStack (content: {
                 Text(day.day).bold()
@@ -54,15 +56,4 @@ struct Days: Identifiable {
     
 }
 
-/* For development use. */
-func create_list (list: Array<Days>) -> Array<Days>{
-    var list = list
-    list.append(Days(day: "Monday", workout: "Lower"))
-    list.append(Days(day: "Tuesday", workout: "Upper"))
-    list.append(Days(day: "Wednesday", workout: "Back"))
-    return list
-}
 
-func addDay () {
-    
-}
