@@ -11,7 +11,6 @@ import SwiftUI
 struct DaysCard: View {
     
     var day: Days
-    
     var body: some View {
         ZStack {
             // Card background
