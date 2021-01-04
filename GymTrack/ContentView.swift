@@ -11,10 +11,11 @@ import SwiftUI
 let coloredNavAppearance = UINavigationBarAppearance()
 
 struct ContentView: View {
-    @EnvironmentObject var daysList: MainModel
+    @EnvironmentObject var data: MainModel
     @State  var showAdd = false
     @State private var addDay = ""
     @State private var addType = ""
+    @State private var buttonMessage = ""
 
 //    Setup for the navigation bar
     init() {
@@ -34,9 +35,9 @@ struct ContentView: View {
         VStack{
 //          Open DaysCards
             NavigationView {
-                List(daysList.get()) {
+                List(data.get()) {
                     newDay in
-                    NavigationLink (destination: DaysView(day: newDay))
+                    NavigationLink (destination: DaysView(dayID: newDay.id).environmentObject(data))
                     {
                         DaysCard(day: newDay)
                     }
@@ -48,7 +49,11 @@ struct ContentView: View {
             }.accentColor(.black)
             
 //          Toogle button to add days.
-            Button (action: { showAdd = true}, label: {
+            Button (action: {
+                showAdd = true
+                buttonMessage = "Dismiss"
+                
+            }, label: {
                 if (!showAdd){
                     Image(systemName: "plus")
                         .resizable()
@@ -66,21 +71,30 @@ struct ContentView: View {
                     .multilineTextAlignment(.center)
                 TextField("Enter type of workout day(ex: Legs).", text: $addType)
                     .multilineTextAlignment(.center)
+                    .onTapGesture {
+                        if (addDay != "")
+                        {
+                            buttonMessage = "Add Day"
+                        }
+                    }
                 
                 Button(action: {
                     
-    //                TODO: Add warning message when inputs are empty
-                        if (addType != "" && addDay != "") {
-                            daysList.addDay(newDayName: addDay, newDayType: addType)
-    //                    Reset vars
-                            addType = ""
-                            addDay = ""
-                            showAdd = false
-                        }
+//                TODO: Add warning message when inputs are empty
+                    if (addType != "" && addDay != "") {
+                        data.addDay(newDayName: addDay, newDayType: addType)
+                        
+                    }
+//                  Reset vars
+                    showAdd = false
+                    addType = ""
+                    addDay = ""
+                    buttonMessage = "Dismiss"
+
                     },
 
                     label: {
-                        Text("Add Day")
+                        Text(buttonMessage)
                             .bold()
                     })
             }
@@ -96,16 +110,3 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-struct AddDayView: View {
-    
-    @EnvironmentObject var daysList: MainModel
-    
-    var body: some View {
-//          TODO: Organize days
-//           Adds Day , only show when on main navigation view.
-        VStack{
-    
-            
-        }
-    }
-}
