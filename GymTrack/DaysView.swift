@@ -21,14 +21,14 @@ struct DaysView: View {
         VStack{
             ZStack{
                 RoundedRectangle(cornerRadius: 50.0, style: .circular)
-                    .fill(/*@START_MENU_TOKEN@*/Color.blue/*@END_MENU_TOKEN@*/)
+                    .fill(Color.black)
                     .frame(height: 50)
                 HStack{
                     Text((data.get())[dayID].day).font(.largeTitle)
                     Image(systemName: "plus")
                         .resizable()
                         .padding(5)
-                        .frame(width: 50, height: 50)
+                        .frame(width: 45, height: 45)
                         .clipShape(Circle())
                         .foregroundColor(.white)
                         .offset(x:50)
@@ -36,7 +36,9 @@ struct DaysView: View {
                             showAddWork = true
                         }
                 }
-            }.padding()
+            }
+            .foregroundColor(.white)
+            .padding()
             
 //          List workouts in the day
             List((data.get())[dayID].workouts) {
@@ -54,6 +56,7 @@ struct DaysView: View {
 //                    }
             }
 //          Add a new workout
+// TODO: Create function to check for valid input.
             if (showAddWork){
                 VStack{
                     TextField("Exercise",text: $exercise)
@@ -61,29 +64,23 @@ struct DaysView: View {
                     TextField("Reps", text: $reps).keyboardType(.numberPad)
                     TextField("Sets",text: $sets).keyboardType(.numberPad)
                     Button(action: {
-                        data.daysList[dayID].addWorkout(name: exercise, weight: Int(weight)!, reps: Int(reps)!, sets: Int(sets)!)
-//                        Reset variables   
-                        exercise = ""
-                        weight = ""
-                        reps = ""
-                        sets = ""
+                        if (exercise != ""){
+                            data.daysList[dayID].addWorkout(name: exercise, weight: Int(weight)!, reps: Int(reps)!, sets: Int(sets)!)
+    //                        Reset variables
+                            exercise = ""
+                            weight = ""
+                            reps = ""
+                            sets = ""
+                        }
                         showAddWork = false
-                        
                     }, label: {
                         Text("Add")
                             .padding()
-                            .foregroundColor(.white)
-                            .background(
-                                RoundedRectangle(cornerSize: CGSize(width: 100, height: 80), style: /*@START_MENU_TOKEN@*/.circular/*@END_MENU_TOKEN@*/)
-                                    .fill(Color.blue)
-                            )
-                            
-                        
+                            .foregroundColor(.blue)
                     })
                 }
                 .multilineTextAlignment(.center)
                 .padding(15)
-                
             }
         }
     }

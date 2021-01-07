@@ -15,7 +15,7 @@ struct DaysCard: View {
         ZStack {
             // Card background
             RoundedRectangle(cornerRadius: 20, style: /*@START_MENU_TOKEN@*/.continuous/*@END_MENU_TOKEN@*/)
-                .fill(Color.blue)
+                .fill(Color.black)
             RoundedRectangle(cornerRadius: 20, style: /*@START_MENU_TOKEN@*/.continuous/*@END_MENU_TOKEN@*/)
                 .stroke(lineWidth: 3)
             //Contents workout
@@ -24,7 +24,10 @@ struct DaysCard: View {
                 Text("Workout Type: ").underline() + Text(day.workoutType)
                 Text("Number of Workouts: ").underline() + Text(String(day.numOfWorkouts))
                 Spacer()
-            }).font(.title)
+            })
+            .font(.title)
+            .foregroundColor(.white)
+            
         }
     }
 }
