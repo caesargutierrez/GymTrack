@@ -6,19 +6,22 @@
 //
 
 import SwiftUI
+import CoreData
+
+let DEV = true
 
 @main
 struct GymTrackApp: App {
-//    TODO: Use data core and create array from there.
-    var data = MainModel()    /* Create data from source. */
-    init() {
-        data.create_list()
-    }
+    
+    let persistenceController = DEV ? PersistenceController.preview :PersistenceController.shared
     
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(data)
+            ContentView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
         
     }
 }
+
+

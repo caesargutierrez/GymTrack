@@ -35,7 +35,6 @@ class MainModel: ObservableObject {
     }
 }
 
-// MODEL
 /* Data structure to represent the day of the week */
 struct Days: Identifiable {
     
