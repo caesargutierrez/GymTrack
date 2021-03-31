@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD24868D26139C7600919355 /* DataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD24868C26139C7600919355 /* DataStructures.swift */; };
 		CD75A9CD25FC6D3400A58957 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD75A9CC25FC6D3400A58957 /* AppDelegate.swift */; };
 		CD75A9CF25FC6D3400A58957 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD75A9CE25FC6D3400A58957 /* SceneDelegate.swift */; };
 		CD75A9D125FC6D3400A58957 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD75A9D025FC6D3400A58957 /* ViewController.swift */; };
@@ -15,10 +16,10 @@
 		CD75A9D925FC6D3800A58957 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD75A9D825FC6D3800A58957 /* Assets.xcassets */; };
 		CD75A9DC25FC6D3800A58957 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD75A9DA25FC6D3800A58957 /* LaunchScreen.storyboard */; };
 		CD9B042D260404F9005F84DE /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9B042C260404F9005F84DE /* DayViewController.swift */; };
-		CD9B043026041261005F84DE /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9B042F26041261005F84DE /* Day.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CD24868C26139C7600919355 /* DataStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructures.swift; sourceTree = "<group>"; };
 		CD75A9C925FC6D3400A58957 /* GymTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GymTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD75A9CC25FC6D3400A58957 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD75A9CE25FC6D3400A58957 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -29,7 +30,6 @@
 		CD75A9DB25FC6D3800A58957 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD75A9DD25FC6D3800A58957 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD9B042C260404F9005F84DE /* DayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
-		CD9B042F26041261005F84DE /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,12 +66,12 @@
 				CD75A9CE25FC6D3400A58957 /* SceneDelegate.swift */,
 				CD75A9D025FC6D3400A58957 /* ViewController.swift */,
 				CD75A9D225FC6D3400A58957 /* Main.storyboard */,
-				CD9B042F26041261005F84DE /* Day.swift */,
 				CD9B042C260404F9005F84DE /* DayViewController.swift */,
 				CD75A9D825FC6D3800A58957 /* Assets.xcassets */,
 				CD75A9DA25FC6D3800A58957 /* LaunchScreen.storyboard */,
 				CD75A9DD25FC6D3800A58957 /* Info.plist */,
 				CD75A9D525FC6D3400A58957 /* GymTrack.xcdatamodeld */,
+				CD24868C26139C7600919355 /* DataStructures.swift */,
 			);
 			path = GymTrack;
 			sourceTree = "<group>";
@@ -148,8 +148,8 @@
 			files = (
 				CD75A9D125FC6D3400A58957 /* ViewController.swift in Sources */,
 				CD9B042D260404F9005F84DE /* DayViewController.swift in Sources */,
-				CD9B043026041261005F84DE /* Day.swift in Sources */,
 				CD75A9CD25FC6D3400A58957 /* AppDelegate.swift in Sources */,
+				CD24868D26139C7600919355 /* DataStructures.swift in Sources */,
 				CD75A9CF25FC6D3400A58957 /* SceneDelegate.swift in Sources */,
 				CD75A9D725FC6D3400A58957 /* GymTrack.xcdatamodeld in Sources */,
 			);

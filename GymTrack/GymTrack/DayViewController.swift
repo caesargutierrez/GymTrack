@@ -8,11 +8,19 @@
 import UIKit
 
 class DayViewController: UIViewController {
-
+    
+    
+    @IBOutlet weak var workoutLabel: UILabel!
+    
+    
+    var delegate:UIViewController!
+    var day: Day!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        workoutLabel.text = day.name
+        
     }
     
 
@@ -25,5 +33,8 @@ class DayViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    
+    
+    
 }

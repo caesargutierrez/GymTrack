@@ -38,7 +38,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="8ZU-oh-ufn" kind="show" id="ypq-oJ-KHa"/>
+                                            <segue destination="8ZU-oh-ufn" kind="show" identifier="showDayID" id="ypq-oJ-KHa"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -89,13 +89,13 @@
         <!--DayViewController-->
         <scene sceneID="jAP-Pp-UIY">
             <objects>
-                <viewController id="8ZU-oh-ufn" userLabel="DayViewController" sceneMemberID="viewController">
+                <viewController id="8ZU-oh-ufn" userLabel="DayViewController" customClass="DayViewController" customModule="GymTrack" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sbJ-Gh-6gx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Workouts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOc-ES-MiX">
-                                <rect key="frame" x="112" y="106" width="191" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Workouts" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOc-ES-MiX">
+                                <rect key="frame" x="93" y="144" width="228" height="122"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -106,10 +106,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="nno-yb-h1u"/>
+                    <connections>
+                        <outlet property="workoutLabel" destination="kOc-ES-MiX" id="w8M-Bk-3Ik"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Twn-n9-cm0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1906" y="425"/>
+            <point key="canvasLocation" x="1905.7971014492755" y="424.55357142857139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WeI-2L-N61">
